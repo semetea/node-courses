@@ -1,6 +1,26 @@
 const request = require('postman-request')
 const geocode = require('./utils/geocode.js')
 const forecast = require('./utils/forecast.js')
+const address = process.argv[2]
+if(!address) {
+    console.log('Please provide an address')
+} else {
+    geocode(address, (error, data)=> {
+        if(error) {
+           return console.log(error)
+        } 
+    
+        forecast(data.latitude, data.longtitude, (error, forecastData) => {
+            if(error) {
+                return console.log(error)
+            }
+    
+            console.log('Location: ' + data.location)
+            console.log(forecastData)
+          })
+        
+    })
+}
 
 // const url = "http://api.weatherstack.com/current?access_key=6c15c01c6e5fa31d683e3d1f359860ab&query=37.6584,126.8320"
 
@@ -37,13 +57,6 @@ const forecast = require('./utils/forecast.js')
 // })
 
 
-geocode('Toronto', (error, data)=> {
-    console.log('Error: ', error)
-    console.log('Data: ' , data)
-})
 
 
-forecast(-75.7088, 44.1545, (error, data) => {
-    console.log('Error', error)
-    console.log('Data', data)
-  })
+
