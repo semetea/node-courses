@@ -8,15 +8,28 @@ const app = express()
 const publicDirectoryPath = path.join(__dirname, '../public')
 
 app.set('view engine', 'hbs')
-app.use(express.static(publicDirectoryPath))
+app.use(express.static(publicDirectoryPath))    // Sending static assest
 
 app.get('', (req,res)=> {
-    res.render('index')
+    res.render('index', {
+        title: 'Weather App',
+        name: 'Terry Han'
+    })
 })
 
-// app.get('', (req, res)=> {
-//     res.send('<h1>Weather</h1>')
-// })
+app.get('/about', (req,res)=> {
+    res.render('about', {
+        title: 'About me',
+        name: 'Terry Han'
+    })
+})
+
+app.get('/help', (req,res)=> {
+    res.render('help',{
+        title: 'Help',
+        message: 'This is some helpful text'
+    })
+})
 
 
 
