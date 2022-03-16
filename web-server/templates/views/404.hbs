@@ -3,15 +3,21 @@
 <html>
 
 <head>
+    <title>404</title>
+    <link rel="icon" href="/img/weather.png">
     <link rel="stylesheet" href="./css/styles.css"> 
 </head>
 
 <body>
-    {{>header}}
+    <div class="main-content">
+        {{>header}}
 
-    <p>
-        {{errorMessage}}
-    </p>
+        <p>
+            {{errorMessage}}
+        </p>
+
+    </div>
+    
     {{>footer}}
 </body>
 
