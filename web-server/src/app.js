@@ -70,12 +70,12 @@ app.get('/weather',(req, res)=> {
 
 app.get('/products',(req, res) => {
     if(!req.query.search) {
-        return res.send({
+        return res.send({   // 많이 쓰이는 방식(else로 처리할 수 있지만)
             error: 'You must provide a serach term',
         })
     }
 
-    console.log(req.query.search)
+    console.log(req.query)
     res.send({
         products: []
     })
@@ -100,5 +100,5 @@ app.get('*', (req, res)=> {
 })
 
 app.listen(port, () => {
-    console.log('Server is up on port' + port)
+    console.log('Server is up on port ' + port)
 })

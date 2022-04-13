@@ -5,7 +5,7 @@ const address = process.argv[2]
 if(!address) {
     console.log('Please provide an address')
 } else {
-    geocode(address, (error, {latitude, longtitude, location} = {})=> {
+    geocode(address, (error, {latitude, longtitude, location} = {})=> { // ={} 는 Default value
         if(error) {
            return console.log(error)
         } 
@@ -54,6 +54,13 @@ if(!address) {
 //         console.log("Latitude: " + response.body.features[0].center[1])
 //         console.log("Longtitude: " + response.body.features[0].center[0])
 //     }
+// })
+
+// const url = "http://api.weatherstack.com/current?access_key=6c15c01c6e5fa31d683e3d1f359860ab&query=37.6584,126.8320"
+
+// request({ url : url, json:true }, (error, response)=> {
+// 	const data = response.body.current
+//     console.log("It is currently " + data.temperature + " degress out. If feels like " + data.feelslike + " degrees")
 // })
 
 
