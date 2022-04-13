@@ -28,6 +28,9 @@ const dataBuffer = fs.readFileSync('1-json.json')
 const dataJSON = dataBuffer.toString()
 const data = JSON.parse(dataJSON)   // make string to object
 
+console.log(dataBuffer)
+console.log(dataJSON)
+console.log(data)
 data.name='Terry'
 data.age = 25
 
