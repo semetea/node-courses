@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
+    "start": "env-cmd -f ./config/dev.env node src/index.js",
+    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
     "test": "env-cmd -f ./config/test.env jest --watch"
   },
   "jest": {
@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^7.6.2",
     "bcryptjs": "^2.4.3",
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
@@ -26,8 +27,6 @@
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",
-    "jest": "^28.1.0",
-    "nodemon": "^2.0.16",
-    "supertest": "^6.2.3"
+    "nodemon": "^2.0.16"
   }
 }
